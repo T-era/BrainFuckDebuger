@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja-JP">
+	<head>
+		<title>Bf Debugger</title>
+		<link rel="stylesheet" href="./BfStyles.css" type="text/css" >
+		<link rel="stylesheet" href="./BfHelpStyles.css" type="text/css" >
+		<script type="text/javascript" src="BfSourceTabView.js" ></script>
+		<script type="text/javascript" src="BfDumpView.js" ></script>
+		<script type="text/javascript" src="BfStack.js" ></script>
+		<script type="text/javascript" src="BfSyntaxStruct.js" ></script>
+		<script type="text/javascript" src="BfDebugContext.js" ></script>
+		<script type="text/javascript" src="CharByCharBox.js" ></script>
+		<script type="text/javascript" src="BfMain.js" ></script>
+<style type="text/css" >
+/*div { border: solid; }*/
+</style>
+	</head>
+	<body onload="baseContext.init();">
+		<div id="mode" >
+			<input type="checkbox" id="modeCheck" onclick="baseContext.modeChange();" checked />Use "Macro" expand
+			<span id="mode_help">Not standard Brainf*ck</span>
+		</div>
+		<div id="header">
+			Debugger
+			<input id="HelpButton" value="?" type="button" onclick="OpenHelp();" />
+		</div>
+		<div id="in" >
+			<div id="buttons" class="full">
+				<input id="addMacro" value="+" type="button" onclick="AddMacro();" />
+				<input id="remMacro" value="-" type="button" onclick="RemoveMacro();" />
+				<div id="tabs" class="part" ></div>
+			</div>
+			<div id="main" class="full">
+				<div id="source" class="part" ></div>
+				<input type="button" value="Run" onclick="baseContext.runScript();" />
+				<input type="button" value="A step" onclick="baseContext.step();" />
+				<input type="button" value="To break point" onclick="baseContext.toBreak();" />
+
+				<input class="independent" type="button" id="macroExpander" value="Output standard B.F. source" onclick="baseContext.outputSource();" />
+			</div>
+		</div>
+		<div id="console">
+			<textarea id="consoleView" readonly ></textarea>
+		</div>
+		<div id="out">
+			<table id="dump" border="1">
+				<tr><th class="title">DUMP</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>-</th><th>8</th><th>9</th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th></tr>
+			</table>
+		</div>
+		<div id="HelpDiv" >
+			<input type="button" value="close" onclick="CloseHelp();" />
+			<h2>Brainf*ck Debugger</h2>
+			<p>Interpreter, memory dump viewer and step-by-step debugger for all B.F. programmers.</p>
+			<p class="CopyRight">2012. T-era</p>
+			<h3>About expanded syntax</h3>
+			<p>In this tool, script parser have function "Macro", expanded from standerd B.F. </p>
+			<h4>What's "Macro"?</h4>
+			<p>Additional command, which can use to replace for some mass of commands (in this tool internal).
+			<p>Push button "+", in right edge of screen. Added new tab (which you can name), you can call it as name in main script (or in another "Macro").
+			<br/>Macro's name must be one character.(or it can't be called by anywhere.)</p>
+			<h4>How to edit "Macro" contents?</h4>
+			<p>Push button values their name. Once, view contents. Second, open text-area and you can edit it.</p>
+			<h4>Is it function ?</h4>
+			<p>No. Sometime, it works as like function. But isn't same. 
+			<br/>B.F. parser try to expand all macros at the first. If macro was recursional, parser would never complete it.</p>
+			<h4>Any other limitations ?</h4>
+			<p>A Macro must be closed in syntax. Must matche Loop start "[" and loop end "]".</p>
+			<h3>About debug</h3>
+			<h4>How to execute in debugger ?</h4>
+			<p>To use debugger...
+			<ul>
+				<li>Button "Run" for evaluate all script.</li>
+				<li>Button "A step" for evaluate a step.</li>
+				<li>Button "To break point" for execute script until break-point or end of script.</li>
+			</ul>
+			</p>
+			<h4>How to set break-point ?</h4>
+			<p>Click on a command, on view-mode.(Not edit-mode.)</p>
+		</div>
+	</body>
+</html>

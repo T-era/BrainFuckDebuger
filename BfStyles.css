@@ -1,0 +1,105 @@
+body {
+	min-width: 400px;
+	background: #effff8;
+}
+div#header {
+	font-size: 24px;
+	height: 30px;
+}
+div#mode {
+	float:right;
+	font-size: 10px; 
+}
+#mode_help {
+	display: none;
+}
+div#mode:hover>span#mode_help {
+	margin: 0px 0px 0px 10px;
+	display: block;
+	background: #ff8888;
+	position: absolute;
+}
+div#in {
+	height: 200px;
+}
+div#console {
+	height: 200px;
+}
+
+div>div.full {
+	height: 100%;
+}
+div>div#source {
+	height: 170px;
+	margin-bottom: 3px;
+	background: white;
+}
+div#console>textarea {
+	background: black;
+	color: white;
+}
+div#out {
+	background: white;
+}
+div#header>input[type="button"] {
+	background: #eaeaea;
+}
+div#buttons {
+	float: right;
+	max-width:70px;
+}
+div#source {
+	margin-right: 70px;
+}
+textarea {
+	width: 100%;
+	height: 100%;
+}
+table#dump {
+	width: 100%;
+}
+table td {
+	text-align: right;
+}
+input[type="button"] {
+	height: 24px;
+}
+input[type="button"][disabled] {
+	height: 24px;
+	color: #a0a0a0;
+}
+input[type="button"].tab {
+	display: block;
+	width: 60px;
+	background: #e0e0e0;
+}
+input[type="button"].tab.selected{
+	background: #ffc0c0;
+}
+input[type="button"].independent {
+	margin: 0px 0px 0px 30px;
+}
+
+table th {
+	background: #c0c0c0;
+}
+table th.title {
+	width: 60px;
+}
+.CharByChar {
+	float: left;
+}
+.BackGround_Normal {
+	background: white;
+}
+.BackGround_Break {
+	background: #a0a0ff;
+}
+.ForeGround_Normal {
+	color: blue;
+	font-weight: normal;
+}
+.ForeGround_Current {
+	color: red;
+	font-weight: bold;
+}

@@ -1,0 +1,24 @@
+div#HelpDiv {
+	border: groove 4px;
+	padding: 2px;
+	background: #e0f0ff;
+	display: none;
+}
+div#HelpDiv input[value="close"] {
+	float: right;
+}
+div#HelpDiv p.CopyRight {
+	text-align: right;
+}
+div#HelpDiv>h3 {
+	margin-left: 0px;
+}
+div#HelpDiv>h3+* {
+	margin-left: 4px;
+}
+div#HelpDiv>h4 {
+	margin-left: 10px;
+}
+div#HelpDiv>h4+* {
+	margin-left: 20px;
+}
